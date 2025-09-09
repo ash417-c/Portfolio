@@ -1,82 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ash | Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>hi! i’m ash</title>
+
+  <!-- Replace with your own CSS file path -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Optional: simple system-first font stack -->
+  <meta name="color-scheme" content="light dark">
 </head>
 <body>
-  <!-- Navbar -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">Ash</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <main class="container">
+    <header class="top">
+      <h1 class="site-title">hi! i’m ash</h1>
+      <p class="subtitle">illustrator, animator, and developer</p>
+    </header>
+
+    <section class="intro">
+      <div class="card">
+        <h2 class="name">Ash <span class="native">(葉千林)</span></h2>
+        <p class="short">
+          CS student • front-end & game dev enthusiast. i make small games, hand-drawn animations,
+          and neat, usable websites.
+        </p>
+
+        <p class="call">
+          interested in working together? email me at
+          <a href="mailto:hi@ash.dev" class="inline-link">hi@ash.dev</a>
+        </p>
+
+        <hr>
+
+        <div class="meta-grid">
+          <div>
+            <strong>education</strong>
+            <p>b.s. computer science</p>
+          </div>
+          <div>
+            <strong>other interests</strong>
+            <p>game dev · music · puzzle games · zelda</p>
+          </div>
+          <div>
+            <strong>languages</strong>
+            <p>english · filipino · some chinese / japanese</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="links">
+      <h3 class="section-title">links</h3>
+      <ul class="link-list">
+        <li><a href="#" target="_blank" rel="noopener">twitter</a></li>
+        <li><a href="#" target="_blank" rel="noopener">youtube</a></li>
+        <li><a href="#" target="_blank" rel="noopener">ko-fi</a></li>
+        <li><a href="#" target="_blank" rel="noopener">instagram</a></li>
+        <li><a href="#" target="_blank" rel="noopener">github</a></li>
       </ul>
-    </nav>
-  </header>
+    </section>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Hi, I’m <span class="highlight">Ash</span> 👋</h1>
-    <p>CS Student @ KU | Aspiring Software Engineer | Game Dev Enthusiast</p>
-    <div class="cta-buttons">
-      <a href="#projects" class="btn">View Projects</a>
-      <a href="docs/resume.pdf" target="_blank" class="btn secondary">Download Resume</a>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>
-      I’m a Computer Science student passionate about building clean, user-friendly
-      software. My interests include web development, algorithms, and game design.
-      Always learning and eager to apply my skills to real-world projects.
-    </p>
-    <div class="skills">
-      <span>💻 Python</span>
-      <span>⚡ C++</span>
-      <span>🌐 JavaScript</span>
-      <span>🎮 Unity</span>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="img/project1.png" alt="Project 1 screenshot" />
-        <h3>Pathfinding Visualizer</h3>
-        <p>Interactive tool to visualize algorithms like BFS, DFS, and A*.</p>
-        <a href="https://github.com/yourusername/project1" target="_blank">View on GitHub</a>
+    <section class="work">
+      <h3 class="section-title">work</h3>
+      <div class="work-card">
+        <p class="work-desc">
+          accepting offers via email. i do illustration, animation, web design, and small-game prototypes.
+        </p>
+        <p class="tools"><strong>tools</strong> — photoshop · clip studio · figma · unity</p>
+        <p class="dev"> <strong>development</strong> — javascript · html/css · c# · python · react</p>
       </div>
-      <div class="project-card">
-        <img src="img/project2.png" alt="Project 2 screenshot" />
-        <h3>Portfolio Website</h3>
-        <p>This very site! Built with HTML, CSS, and hosted on GitHub Pages.</p>
-        <a href="https://github.com/yourusername/portfolio" target="_blank">View on GitHub</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Let’s connect! Find me here:</p>
-    <div class="contact-links">
-      <a href="mailto:youremail@example.com">📧 Email</a>
-      <a href="https://github.com/yourusername" target="_blank">🐙 GitHub</a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank">💼 LinkedIn</a>
-    </div>
-  </section>
+    <section class="projects">
+      <h3 class="section-title">projects</h3>
+      <article class="project">
+        <h4>frog pond</h4>
+        <p class="project-desc">a small desktop idle pond with little frog characters — made with love and shipped on itch.io.</p>
+      </article>
 
-  <footer>
-    <p>© 2025 Ash. Built with ❤ and GitHub Pages.</p>
-  </footer>
+      <article class="project">
+        <h4>bingus adventure</h4>
+        <p class="project-desc">a goofy RPG made during a game jam — programming + sprite work.</p>
+      </article>
+    </section>
+
+    <section class="contact">
+      <h3 class="section-title">contact</h3>
+      <p class="contact-note">the easiest way to reach me is email — i don't always check DMs.</p>
+      <p><a class="cta-mail" href="mailto:hi@ash.dev">send me an email</a></p>
+    </section>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Ash. simple site.</p>
+    </footer>
+  </main>
+
+  <script>
+    // set year dynamically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
