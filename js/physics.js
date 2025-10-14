@@ -21,96 +21,96 @@ Render.run(render);
 const runner = Runner.create();
 Runner.run(runner, engine); 
 
-// ---- Define all objects ----
-    //position
-    let y_pos = window.innerHeight/2;
-    let object_num = 4;
-    let x_pos = [];
-    for (let i = 1; i < object_num+1; i++) {
-        x_pos.push((window.innerWidth*i)/(object_num+1));
-    }
+//toys position
+let y_pos = window.innerHeight/2;
+let object_num = 4;
+let x_pos = [];
+for (let i = 1; i < object_num+1; i++) {
+    x_pos.push((window.innerWidth*i)/(object_num+1));
+}
 
-    //python object
-    let python_radius = 70;
-    let python = Bodies.circle(x_pos[0], y_pos, python_radius, {
-    restitution: 0.3, // bounce
-    render: {
-        sprite: {
-            texture: './images/python.png', // always starts from index.html
-            xScale: (python_radius*2)/165,          // 165 = image width
-            yScale: (python_radius*2)/165           // 165 = image height
+//list of toys
+let python_radius = 70;
+let cpp_radius = 65;
+let unity_size = 150;
+let toys = [
+    Bodies.circle(x_pos[0], y_pos, python_radius, {
+        restitution: 0.3, // bounce
+        render: {
+            sprite: {
+                texture: './images/python.png', // always starts from index.html
+                xScale: (python_radius*2)/165,          // 165 = image width
+                yScale: (python_radius*2)/165           // 165 = image height
+            }
         }
-    }
-    });
-    //cpp object
-    let cpp_radius = 65;
-    let cpp = Bodies.polygon(x_pos[1], y_pos, 6, cpp_radius, {
-    restitution: 0.3,
-    render: {
-        sprite: {
-            texture: './images/cpp-1to1.png', // always starts from index.html
-            xScale: (cpp_radius*2)/500,          // 490 = image width
-            yScale: (cpp_radius*2)/500           // 490 = image height
+    }),
+    Bodies.polygon(x_pos[1], y_pos, 6, cpp_radius, {
+        restitution: 0.3,
+        render: {
+            sprite: {
+                texture: './images/cpp-1to1.png', // always starts from index.html
+                xScale: (cpp_radius*2)/500,          // 490 = image width
+                yScale: (cpp_radius*2)/500           // 490 = image height
+            }
         }
-    }
-    });
-    //unity object
-    let unity_size = 150;
-    let unity = Bodies.rectangle(x_pos[2], y_pos, unity_size, unity_size, {
-    restitution: 0.3,
-    render: {
-        sprite: {
-            texture: './images/unity.png', // always starts from index.html
-            xScale: (unity_size)/512,          // 512 = image width
-            yScale: (unity_size)/512           // 512 = image height
+    }),
+    Bodies.rectangle(x_pos[2], y_pos, unity_size, unity_size, {
+        restitution: 0.3,
+        render: {
+            sprite: {
+                texture: './images/unity.png', // always starts from index.html
+                xScale: (unity_size)/512,          // 512 = image width
+                yScale: (unity_size)/512           // 512 = image height
+            }
         }
-    }
-    });
-    //firebase object
-    let firebase_size = 100;
-    let firebase = Matter.Bodies.fromVertices(x_pos[3], y_pos, [
-        { x: 0, y: 0 },
-        { x: -50, y: 28 },
-        { x: -100, y: 0 },
-        { x: -80, y: -120 },
-        { x: -20, y: -90 }
-    ], {
+    }),
+    Matter.Bodies.fromVertices(x_pos[3], y_pos, [
+        { x: 0,     y: 0    },
+        { x: -50,   y: 28   },
+        { x: -100,  y: 0    },
+        { x: -80,   y: -120 },
+        { x: -20,   y: -90  }
+    ],{
         restitution: 0.3,
         render: {
             sprite: {
                 texture: './images/firebase.svg', // always starts from index.html
-                xScale: (unity_size)/850,          // 512 = image width
-                yScale: (unity_size)/850           // 512 = image height
+                xScale: (3)/17,     
+                yScale: (3)/17  
             }
         }
-    });
+    })
+];
 
 // create walls
 const wall_thickness = 20;
-const bot_wall = Bodies.rectangle(window.innerWidth/2, window.innerHeight, window.innerWidth, wall_thickness, {
-isStatic: true,
-render: { fillStyle: '#555' }
-});
-const top_wall = Bodies.rectangle(window.innerWidth/2, 0, window.innerWidth, wall_thickness, {
-isStatic: true,
-render: { fillStyle: '#555' }
-});
-const left_wall = Bodies.rectangle(0, window.innerHeight/2, wall_thickness, window.innerHeight, {
-isStatic: true,
-render: { fillStyle: '#555' }
-});
-const right_wall = Bodies.rectangle(window.innerWidth, window.innerHeight/2, wall_thickness, window.innerHeight, {
-isStatic: true,
-render: { fillStyle: '#555' }
-});
+const walls = {
+    bot : Bodies.rectangle(window.innerWidth/2, window.innerHeight, window.innerWidth, wall_thickness, {
+        isStatic: true,
+        render: { fillStyle: '#555' }
+        }),
+    top : Bodies.rectangle(window.innerWidth/2, 0                 , window.innerWidth, wall_thickness, {
+        isStatic: true,
+        render: { fillStyle: '#555' }
+        }),
+    left : Bodies.rectangle(0,               window.innerHeight/2, wall_thickness, window.innerHeight, {
+        isStatic: true,
+        render: { fillStyle: '#555' }
+        }),
+    right : Bodies.rectangle(window.innerWidth, window.innerHeight/2, wall_thickness, window.innerHeight, {
+        isStatic: true,
+        render: { fillStyle: '#555' }
+        })
+};
 
-World.add(world, [python, cpp, unity, firebase, bot_wall, top_wall, left_wall, right_wall]);
+World.add(world, Object.values(walls));
+World.add(world, toys);
 
 // Add mouse control
 const mouse = Mouse.create(render.canvas);
 const mouseConstraint = MouseConstraint.create(engine, {
-mouse: mouse,
-constraint: { stiffness: 0.2 }
+    mouse: mouse,
+    constraint: { stiffness: 0.2 }
 });
 World.add(world, mouseConstraint);
 
@@ -118,8 +118,20 @@ World.add(world, mouseConstraint);
 window.addEventListener('resize', () => {
     render.canvas.width = window.innerWidth;
     render.canvas.height = window.innerHeight;
-    Matter.Body.setPosition(bot_wall, { x: window.innerWidth/2, y: window.innerHeight   });
-    Matter.Body.setPosition(top_wall, { x: window.innerWidth/2, y: 0                    });
-    Matter.Body.setPosition(left_wall, { x: 0,                  y: window.innerHeight/2 });
-    Matter.Body.setPosition(right_wall, { x: window.innerWidth, y: window.innerHeight/2 });
+
+    Matter.Body.setPosition(walls.bot, { x: window.innerWidth/2, y: window.innerHeight   });
+    let bot_scale = (window.innerWidth)/(walls.bot.bounds.max.x - walls.bot.bounds.min.x);
+    Matter.Body.scale(walls.bot, bot_scale, 1)
+
+    Matter.Body.setPosition(walls.top, { x: window.innerWidth/2, y: 0                    });
+    let top_scale = (window.innerWidth)/(walls.top.bounds.max.x - walls.top.bounds.min.x);
+    Matter.Body.scale(walls.top, top_scale, 1)
+
+    Matter.Body.setPosition(walls.left, { x: 0,                  y: window.innerHeight/2 });
+    let left_scale = (window.innerHeight)/(walls.left.bounds.max.y - walls.left.bounds.min.y);
+    Matter.Body.scale(walls.left, 1, left_scale)
+
+    Matter.Body.setPosition(walls.right, { x: window.innerWidth, y: window.innerHeight/2 });
+    let right_scale = (window.innerHeight)/(walls.right.bounds.max.y - walls.right.bounds.min.y);
+    Matter.Body.scale(walls.right, 1, right_scale)
 });
