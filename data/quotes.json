@@ -1,18 +1,48 @@
 [
-    {
-        "quote":  "One day or day one. You decide", 
-        "author": "Paulo Coelho"
-    },
-    {
-        "quote":  "Real Power bla bla bla", 
-        "author": "stalin or somthing"
-    },
-    {
-        "quote": "Git Gud",
-        "author": "Hornet, Silksong"
-    },
-    {
-        "quote": "K*** Yourself",
-        "author": "Reddit"
-    }
+    {"quote":  "One day or day one. You decide", "author": "Paulo Coelho" },
+    {"quote":  "Real Power bla bla bla", "author": "stalin or somthing" },
+    {"quote": "Git Gud", "author": "Hornet" },
+    {"quote": "K*** Yourself", "author": "Reddit" },
+    {"quote": "Only by understanding pain can we truly understand joy.", "author": "Reze"},
+    {"quote": "There’s a world beyond this one; you just have to reach for it.", "author": "Reze"},
+
+    {"quote": "The only way to do great work is to love what you do.", "author": "Steve Jobs"},
+    {"quote": "In the end, we will remember not the words of our enemies, but the silence of our friends.", "author": "Martin Luther King Jr."},
+    {"quote": "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.", "author": "Ralph Waldo Emerson"},
+    {"quote": "Success is not the key to happiness. Happiness is the key to success.", "author": "Albert Schweitzer"},
+    {"quote": "The only limit to our realization of tomorrow will be our doubts of today.", "author": "Franklin D. Roosevelt"},
+    {"quote": "What lies behind us and what lies before us are tiny matters compared to what lies within us.", "author": "Ralph Waldo Emerson"},
+    {"quote": "Believe you can and you're halfway there.", "author": "Theodore Roosevelt"},
+    {"quote": "You miss 100% of the shots you don’t take.", "author": "Wayne Gretzky"},
+    {"quote": "The best way to predict the future is to invent it.", "author": "Alan Kay"},
+    {"quote": "Life is what happens when you're busy making other plans.", "author": "John Lennon"},
+    {"quote": "Not how long, but how well you have lived is the main thing.", "author": "Seneca"},
+    {"quote": "The journey of a thousand miles begins with one step.", "author": "Lao Tzu"},
+    {"quote": "You must be the change you wish to see in the world.", "author": "Mahatma Gandhi"},
+    {"quote": "Life is either a daring adventure or nothing at all.", "author": "Helen Keller"},
+    {"quote": "It is never too late to be what you might have been.", "author": "George Eliot"},
+    {"quote": "Do what you can, with what you have, where you are.", "author": "Theodore Roosevelt"},
+    {"quote": "Act as if what you do makes a difference. It does.", "author": "William James"},
+    {"quote": "Success usually comes to those who are too busy to be looking for it.", "author": "Henry David Thoreau"},
+    {"quote": "What we think, we become.", "author": "Buddha"},
+    {"quote": "The purpose of our lives is to be happy.", "author": "Dalai Lama"},
+    {"quote": "If you cannot do great things, do small things in a great way.", "author": "Napoleon Hill"},
+    {"quote": "The mind is everything. What you think you become.", "author": "Buddha"},
+    {"quote": "Dream big and dare to fail.", "author": "Norman Vaughan"},
+    {"quote": "You are never too old to set another goal or to dream a new dream.", "author": "C.S. Lewis"},
+    {"quote": "Turn your wounds into wisdom.", "author": "Oprah Winfrey"},
+    {"quote": "It does not matter how slowly you go as long as you do not stop.", "author": "Confucius"},
+    {"quote": "Everything you can imagine is real.", "author": "Pablo Picasso"},
+    {"quote": "What we achieve inwardly will change outer reality.", "author": "Plutarch"},
+    {"quote": "Your time is limited, so don’t waste it living someone else’s life.", "author": "Steve Jobs"},
+    {"quote": "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment.", "author": "Buddha"},
+    {"quote": "Happiness is not something ready made. It comes from your own actions.", "author": "Dalai Lama"},
+    {"quote": "Strive not to be a success, but rather to be of value.", "author": "Albert Einstein"},
+    {"quote": "Don't watch the clock; do what it does. Keep going.", "author": "Sam Levenson"},
+    {"quote": "You only live once, but if you do it right, once is enough.", "author": "Mae West"},
+    {"quote": "Life is 10% what happens to us and 90% how we react to it.", "author": "Charles R. Swindoll"},
+    {"quote": "The unexamined life is not worth living.", "author": "Socrates"},
+    {"quote": "Every moment is a fresh beginning.", "author": "T.S. Eliot"},
+    {"quote": "It is our choices, far more than our abilities, that show what we truly are.", "author": "J.K. Rowling"}
+
 ]
