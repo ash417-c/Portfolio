@@ -1,0 +1,68 @@
+{
+    "toys": [
+    {
+        "type": "circle",
+        "radius": 60,
+        "options": {
+            "restitution": 0.3,
+            "render": {
+                "sprite": {
+                "texture": "./images/python.png",
+                "xScale": 0.72,
+                "yScale": 0.72
+                }
+            }
+        }
+    },
+    {
+        "type": "polygon",
+        "sides": 6,
+        "radius": 60,
+        "options": {
+            "restitution": 0.3,
+            "render": {
+                "sprite": {
+                "texture": "./images/cpp-1to1.png",
+                "xScale": 0.24,
+                "yScale": 0.24
+                }
+            }
+        }
+    },
+    {
+        "type": "rectangle",
+        "width": 120,
+        "height": 120,
+        "options": {
+        "restitution": 0.3,
+            "render": {
+                "sprite": {
+                "texture": "./images/unity.png",
+                "xScale": 0.234375,
+                "yScale": 0.234375
+                }
+            }
+        }
+    },
+    {
+        "type": "fromVertices",
+        "vertices": [
+            { "x": 0, "y": 0 },
+            { "x": -50, "y": 28 },
+            { "x": -100, "y": 0 },
+            { "x": -80, "y": -120 },
+            { "x": -20, "y": -90 }
+        ],
+        "options": {
+            "restitution": 0.3,
+            "render": {
+                "sprite": {
+                "texture": "./images/firebase.svg",
+                "xScale": 0.18,
+                "yScale": 0.18
+                }
+            }
+        }
+    }
+  ]
+}
