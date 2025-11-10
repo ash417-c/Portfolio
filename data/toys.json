@@ -63,6 +63,21 @@
                 }
             }
         }
+    },
+    {
+        "type": "polygon",
+        "sides": 6,
+        "radius": 60,
+        "options": {
+            "restitution": 0.3,
+            "render": {
+                "sprite": {
+                "texture": "./images/csharp.svg",
+                "xScale": 0.047,
+                "yScale": 0.047
+                }
+            }
+        }
     }
   ]
 }

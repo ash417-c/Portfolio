@@ -1,11 +1,10 @@
 [
-    {"quote":  "One day or day one. You decide", "author": "Paulo Coelho" },
-    {"quote":  "Real Power bla bla bla", "author": "stalin or somthing" },
-    {"quote": "Git Gud", "author": "Hornet" },
-    {"quote": "K*** Yourself", "author": "Reddit" },
     {"quote": "Only by understanding pain can we truly understand joy.", "author": "Reze"},
     {"quote": "There's a world beyond this one; you just have to reach for it.", "author": "Reze"},
+    {"quote": "A lesson without pain is meaningless. That's why we grow.", "author": "Pain"},
+    {"quote": "With great power comes great responsibility.", "author": "Uncle Ben"},
 
+    {"quote":  "One day or day one. You decide", "author": "Paulo Coelho" },
     {"quote": "The only way to do great work is to love what you do.", "author": "Steve Jobs"},
     {"quote": "In the end, we will remember not the words of our enemies, but the silence of our friends.", "author": "Martin Luther King Jr."},
     {"quote": "Success is not the key to happiness. Happiness is the key to success.", "author": "Albert Schweitzer"},
@@ -39,6 +38,10 @@
     {"quote": "Life is 10% what happens to us and 90% how we react to it.", "author": "Charles R. Swindoll"},
     {"quote": "The unexamined life is not worth living.", "author": "Socrates"},
     {"quote": "Every moment is a fresh beginning.", "author": "T.S. Eliot"},
-    {"quote": "It is our choices, far more than our abilities, that show what we truly are.", "author": "J.K. Rowling"}
+    {"quote": "It is our choices, far more than our abilities, that show what we truly are.", "author": "J.K. Rowling"},
+    {"quote": "Doubt kills more dreams than failure ever will.", "author": "Suzy Kassem"},
+    {"quote": "Do not wait to strike till the iron is hot; but make it hot by striking.", "author": "William Butler Yeats"},
+    {"quote": "Start where you are. Use what you have. Do what you can.", "author": "Arthur Ashe"},
+    {"quote": "Life isn't about finding yourself. Life is about creating yourself.", "author": "George Bernard Shaw"}
 
 ]

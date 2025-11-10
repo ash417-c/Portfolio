@@ -5,8 +5,9 @@ const engine = Engine.create();
 const world = engine.world;
 
 // Fullscreen renderer
+const canvas = document.getElementById("matter-canvas");
 const render = Render.create({
-element: document.body,
+canvas: canvas,
 engine: engine,
 options: {
     width: window.innerWidth,
@@ -80,7 +81,7 @@ fetch('./data/toys.json')
 function spawnNextToy(x, y) {
     if (allToys.length === 0) return; // safety check
 
-    // Loop back to start if we reach the end (or remove if you want finite)
+    // Loop back to start if we reach the end 
     const toyData = allToys[spawnIndex % allToys.length];
     spawnIndex++;
 
@@ -174,3 +175,11 @@ const mouseConstraint = MouseConstraint.create(engine, {
     constraint: { stiffness: 0.2 }
 });
 World.add(world, mouseConstraint);
+
+// SWITCHED DESIGN - NO MORE SCROLLING
+// Keeps ability to scroll when hovered over matter.js window 
+// canvas.addEventListener('wheel', (e) => {
+//     e.preventDefault();
+//     const scrollSpeed = 2.5;
+//     window.scrollBy({ top: e.deltaY * scrollSpeed, left: 0, behavior: 'smooth' });
+// }, { passive: false });

@@ -5,21 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <script src="https://cdn.tailwindcss.com"></script> 
     <title>Portfolio</title>
+
+    <!-- Favicon by Fajrul Fitrianto from www.flaticon.com -->
+    <link rel="icon" type="image/png" href="./images/flag.png">
 </head>
-<body class="m-0 p-0 w-full h-full overflow-hidden bg-black">
-    <div class="absolute z-10 pointer-events-none w-full flex flex-col items-center top-[5%]">
-        <h1 id="quote" class="text-5xl text-blue-400 text-center italic font-bold "></h1>
-        <p id="author" class="text-3xl text-gray-400 mt-4 text-center"></p>
-    </div>
+<body class="m-0 p-0 w-full h-full overflow-x-hidden bg-black">
+    <!-- Quote Section -->
+    <section id="physics-section" class="relative w-full h-screen overflow-hidden">
+        <div id="canvas-wrapper" class="absolute top-0 left-0 w-full h-full transition-all duration-300">
+            <canvas id="matter-canvas" class="w-full h-full [touch-action:pan-y]"></canvas>
+        </div>
+
+        <div class="absolute z-10 pointer-events-none w-full flex flex-col items-center top-[5%]">
+            <h1 id="quote" class="text-5xl text-blue-400 text-center italic font-bold"></h1>
+            <p id="author" class="text-3xl text-gray-400 mt-4 text-center"></p>
+        </div>
+
+        <!-- Buttons -->
+        <button id="reload-quote" class="absolute top-[1%] right-[1%] p-3 transition z-10">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 text-gray-500 hover:text-gray-400 transition duration-300" fill="currentColor">
+                <path d="M21,1.9l-2.5,2.5C16.7,2.9,14.5,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10h-2c0,4.5-3.5,8-8,8s-8-3.5-8-8
+                s3.5-8,8-8c1.9,0,3.7,0.7,5.1,1.8L14.9,8H21V1.9z"/>
+            </svg>
+        </button>
+
+        <button id="view-projects" 
+        class="absolute inset-0 m-auto w-max h-max text-gray-500 hover:text-gray-400 font-semibold text-5xl z-10 transition duration-300">
+            View Projects
+        </button>
+    </section>
     
 
+    <!-- Projects Overlay -->
+    <div id="projects-overlay" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-30 flex flex-col items-center justify-center p-8">
+        <h2 class="text-4xl text-blue-400 font-bold mb-6">My Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl">
+            <div class="project-card bg-gray-800 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 hover:ring-2 hover:ring-blue-400/50">
+                <h3 class="text-2xl font-semibold text-blue-400 mb-2">Project 1</h3>
+                <p class="text-gray-300">Short description.</p>
+            </div>
 
+            <div class="project-card bg-gray-800 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 hover:ring-2 hover:ring-blue-400/50">
+                <h3 class="text-2xl font-semibold text-blue-400 mb-2">Project 2</h3>
+                <p class="text-gray-300">Short description.</p>
+            </div>
+
+            <div class="project-card bg-gray-800 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 hover:ring-2 hover:ring-blue-400/50">
+                <h3 class="text-2xl font-semibold text-blue-400 mb-2">Project 3</h3>
+                <p class="text-gray-300">Short description.</p>
+            </div>
+        </div>
+
+        <button id="close-projects"
+            class="mt-10 bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 rounded-xl">
+            Close
+        </button>
+    </div>
+
+     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 
     <script src="./js/animations.js"></script>
     <script src="./js/physics.js"></script>
     <script src="./js/quotes.js"></script>
+
+    <script>
+        const viewBtn = document.getElementById("view-projects");
+        const closeBtn = document.getElementById("close-projects");
+        const overlay = document.getElementById("projects-overlay");
+        const canvasWrapper = document.getElementById("canvas-wrapper");
+
+        viewBtn.addEventListener("click", () => {
+            gsap.to(canvasWrapper, { filter: "blur(2px) brightness(0.8)", duration: 0.5 });
+            overlay.classList.remove("hidden");
+            gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            gsap.to(canvasWrapper, { filter: "blur(0px) brightness(1)", duration: 0.5 });
+            gsap.to(overlay, {
+                opacity: 0,
+                duration: 0.4,
+                onComplete: () => overlay.classList.add("hidden")
+            });
+        });
+    </script>
 
 </body>
 </html>
