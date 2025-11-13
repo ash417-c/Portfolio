@@ -13,7 +13,7 @@ options: {
     width: window.innerWidth,
     height: window.innerHeight,
     wireframes: false, // show colors instead of wireframes
-    background: '#222'
+    background: 'transparent'
 }
 });
 Render.run(render);
@@ -46,13 +46,11 @@ function startSpawning() {
         }, 3000); // every 3 seconds
     }
 }
-
 function stopSpawning() {
     clearInterval(spawnInterval);
     spawnInterval = null;
 }
 
-// --- Load toys from json
 fetch('./data/toys.json')
     .then(res => res.json())
     .then(data => {
@@ -65,17 +63,12 @@ fetch('./data/toys.json')
         }
 
         // Keep spawning new toys if tab in focus
-        startSpawning();
+        if (document.hidden) { stopSpawning(); } else { startSpawning(); }
         document.addEventListener("visibilitychange", () => {
-            if (document.hidden) {
-                stopSpawning();
-            } else {
-                startSpawning();
-            }
+            if (document.hidden) { stopSpawning(); } else { startSpawning(); }
         });
     })
     .catch(err => console.error('Error loading toys.json:', err));
-
 
 // --- Spawning Logic ---
 function spawnNextToy(x, y) {
@@ -176,10 +169,20 @@ const mouseConstraint = MouseConstraint.create(engine, {
 });
 World.add(world, mouseConstraint);
 
-// SWITCHED DESIGN - NO MORE SCROLLING
-// Keeps ability to scroll when hovered over matter.js window 
-// canvas.addEventListener('wheel', (e) => {
-//     e.preventDefault();
-//     const scrollSpeed = 2.5;
-//     window.scrollBy({ top: e.deltaY * scrollSpeed, left: 0, behavior: 'smooth' });
-// }, { passive: false });
+// // --- Click-through logic ---
+// canvas.addEventListener('mousedown', (e) => {
+//     // Get mouse position relative to canvas
+//     const rect = canvas.getBoundingClientRect();
+//     const mouseX = e.clientX - rect.left;
+//     const mouseY = e.clientY - rect.top;
+
+//     // Matter.Query.point expects world coordinates
+//     const foundBodies = Query.point(world.bodies, { x: mouseX, y: mouseY });
+
+//     if (foundBodies.length === 0) {
+//         // No body under mouse -> forward click to underlying element
+//         const underlying = document.elementFromPoint(e.clientX, e.clientY);
+//         if (underlying) underlying.click();
+//     }
+//     // Else: body interaction happens via MatterJS as usual
+// });
