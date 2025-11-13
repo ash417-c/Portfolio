@@ -1,83 +1,128 @@
 {
-    "toys": [
-    {
-        "type": "circle",
-        "radius": 60,
-        "options": {
-            "restitution": 0.3,
-            "render": {
-                "sprite": {
+"toys": [
+{
+    "name": "Python",
+    "type": "circle",
+    "radius": 60,
+    "options": {
+        "restitution": 0.3,
+        "render": {
+            "sprite": {
                 "texture": "./images/python.png",
                 "xScale": 0.72,
                 "yScale": 0.72
-                }
-            }
-        }
-    },
-    {
-        "type": "polygon",
-        "sides": 6,
-        "radius": 60,
-        "options": {
-            "restitution": 0.3,
-            "render": {
-                "sprite": {
-                "texture": "./images/cpp-1to1.png",
-                "xScale": 0.24,
-                "yScale": 0.24
-                }
-            }
-        }
-    },
-    {
-        "type": "rectangle",
-        "width": 120,
-        "height": 120,
-        "options": {
-        "restitution": 0.3,
-            "render": {
-                "sprite": {
-                "texture": "./images/unity.png",
-                "xScale": 0.234375,
-                "yScale": 0.234375
-                }
-            }
-        }
-    },
-    {
-        "type": "fromVertices",
-        "vertices": [
-            { "x": 0, "y": 0 },
-            { "x": -50, "y": 28 },
-            { "x": -100, "y": 0 },
-            { "x": -80, "y": -120 },
-            { "x": -20, "y": -90 }
-        ],
-        "options": {
-            "restitution": 0.3,
-            "render": {
-                "sprite": {
-                "texture": "./images/firebase.svg",
-                "xScale": 0.18,
-                "yScale": 0.18
-                }
-            }
-        }
-    },
-    {
-        "type": "polygon",
-        "sides": 6,
-        "radius": 60,
-        "options": {
-            "restitution": 0.3,
-            "render": {
-                "sprite": {
-                "texture": "./images/csharp.svg",
-                "xScale": 0.047,
-                "yScale": 0.047
-                }
             }
         }
     }
-  ]
+},
+{
+    "name": "C++",
+    "type": "polygon",
+    "sides": 6,
+    "radius": 60,
+    "options": {
+        "restitution": 0.3,
+        "render": {
+            "sprite": {
+                "texture": "./images/cpp-1to1.png",
+                "xScale": 0.24,
+                "yScale": 0.24
+            }
+        }
+    }
+},
+{
+    "name": "Unity",
+    "type": "rectangle",
+    "width": 120,
+    "height": 120,
+    "options": {
+    "restitution": 0.3,
+        "render": {
+            "sprite": {
+                "texture": "./images/unity.png",
+                "xScale": 0.234375,
+                "yScale": 0.234375
+            }
+        }
+    }
+},
+{
+    "name": "Firebase",
+    "type": "fromVertices",
+    "vertices": [
+        { "x": 0, "y": 0 },
+        { "x": -50, "y": 28 },
+        { "x": -100, "y": 0 },
+        { "x": -80, "y": -120 },
+        { "x": -20, "y": -90 }
+    ],
+    "options": {
+        "restitution": 0.3,
+        "render": {
+            "sprite": {
+                "texture": "./images/firebase.svg",
+                "xScale": 0.18,
+                "yScale": 0.18
+            }
+        }
+    }
+},
+{
+    "name": "C#",
+    "type": "polygon",
+    "sides": 6,
+    "radius": 60,
+    "options": {
+        "restitution": 0.3,
+        "render": {
+            "sprite": {
+                "texture": "./images/csharp.svg",
+                "xScale": 0.047,
+                "yScale": 0.047
+            }
+        }
+    }
 }
+],
+"unused": [
+{
+    "name": "SQL",
+    "type": "fromVertices",
+    "vertices": [
+        { "x": 0, "y": -84 },
+        { "x": -17.5, "y": -80 },
+        { "x": -35, "y": -72 },
+        { "x": -49, "y": -60 },
+        { "x": -57, "y": -44 },
+        { "x": -61, "y": -28 },
+        { "x": -61, "y": 28 },
+        { "x": -57, "y": 44 },
+        { "x": -49, "y": 60 },
+        { "x": -35, "y": 72 },
+        { "x": -17.5, "y": 80 },
+        { "x": 0, "y": 84 },
+        { "x": 17.5, "y": 80 },
+        { "x": 35, "y": 72 },
+        { "x": 49, "y": 60 },
+        { "x": 57, "y": 44 },
+        { "x": 61, "y": 28 },
+        { "x": 61, "y": -28 },
+        { "x": 57, "y": -44 },
+        { "x": 49, "y": -60 },
+        { "x": 35, "y": -72 },
+        { "x": 17.5, "y": -80 }
+    ],
+    "options": {
+        "restitution": 0.3,
+        "render": {
+            "sprite": {
+                "texture": "./images/sql.svg",
+                "xScale": 0.2,
+                "yScale": 0.2
+            }
+        }
+    }
+}
+
+]}
