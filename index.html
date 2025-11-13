@@ -9,57 +9,107 @@
     <!-- Favicon by Fajrul Fitrianto from www.flaticon.com -->
     <link rel="icon" type="image/png" href="./images/flag.png">
 </head>
-<body class="m-0 p-0 w-full h-full overflow-x-hidden bg-black">
+<body class="m-0 p-0 w-screen h-screen overflow-hidden bg-[#222]">
+
     <!-- Quote Section -->
-    <section id="physics-section" class="relative w-full h-screen overflow-hidden">
-        <div id="canvas-wrapper" class="absolute top-0 left-0 w-full h-full transition-all duration-300">
+    <section id="physics-section" class="relative w-full h-full">
+
+        <!-- View project button -->
+        <div class="relative flex items-center justify-center w-full h-screen">
+            <div class="relative inline-block">
+                <p class="text-gray-500 font-semibold text-[8rem] z-10">
+                    View Projects
+                </p>
+                <button id="view-projects" class="absolute inset-0 z-30 bg-transparent border-none"></button>
+            </div>
+        </div>
+
+        <!-- Canvas -->
+        <div id="canvas-wrapper" class="absolute top-0 left-0 w-full h-full transition-all duration-300 z-20">
             <canvas id="matter-canvas" class="w-full h-full [touch-action:pan-y]"></canvas>
         </div>
 
-        <div class="absolute z-10 pointer-events-none w-full flex flex-col items-center top-[5%]">
+        <!-- Quote and author -->
+        <div class="absolute z-10 pointer-events-none w-full flex flex-col items-center top-12 z-30">
             <h1 id="quote" class="text-5xl text-blue-400 text-center italic font-bold"></h1>
             <p id="author" class="text-3xl text-gray-400 mt-4 text-center"></p>
         </div>
 
-        <!-- Buttons -->
-        <button id="reload-quote" class="absolute top-[1%] right-[1%] p-3 transition z-10">
+        <!-- Reload quote button -->
+        <button id="reload-quote" class="absolute top-[1%] right-[1%] p-3 transition z-30">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 text-gray-500 hover:text-gray-400 transition duration-300" fill="currentColor">
                 <path d="M21,1.9l-2.5,2.5C16.7,2.9,14.5,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10h-2c0,4.5-3.5,8-8,8s-8-3.5-8-8
                 s3.5-8,8-8c1.9,0,3.7,0.7,5.1,1.8L14.9,8H21V1.9z"/>
             </svg>
         </button>
 
-        <button id="view-projects" 
-        class="absolute inset-0 m-auto w-max h-max text-gray-500 hover:text-gray-400 font-semibold text-5xl z-10 transition duration-300">
-            View Projects
-        </button>
     </section>
-    
 
     <!-- Projects Overlay -->
-    <div id="projects-overlay" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-30 flex flex-col items-center justify-center p-8">
-        <h2 class="text-4xl text-blue-400 font-bold mb-6">My Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl">
-            <div class="project-card bg-gray-800 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 hover:ring-2 hover:ring-blue-400/50">
-                <h3 class="text-2xl font-semibold text-blue-400 mb-2">Project 1</h3>
-                <p class="text-gray-300">Short description.</p>
-            </div>
+    <div id="projects-overlay" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-30 flex flex-col items-center justify-center p-8 w-full h-full">
 
-            <div class="project-card bg-gray-800 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 hover:ring-2 hover:ring-blue-400/50">
-                <h3 class="text-2xl font-semibold text-blue-400 mb-2">Project 2</h3>
-                <p class="text-gray-300">Short description.</p>
-            </div>
-
-            <div class="project-card bg-gray-800 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 hover:ring-2 hover:ring-blue-400/50">
-                <h3 class="text-2xl font-semibold text-blue-400 mb-2">Project 3</h3>
-                <p class="text-gray-300">Short description.</p>
-            </div>
+        <!-- Title -->
+        <div class="absolute z-10 pointer-events-none w-full flex flex-col items-center top-7 z-10">
+            <h1 id="quote" class="text-5xl text-blue-400 text-center font-bold [text-shadow:1px_1px_2px_rgba(0,0,0,0.3)]">
+                My Projects
+            </h1>
         </div>
 
+        <!-- Close button -->
         <button id="close-projects"
-            class="mt-10 bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 rounded-xl">
+        class="absolute mt-10 bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 rounded-xl top-[1%] right-[5%] z-10">
             Close
         </button>
+
+        <!-- Cards section -->
+        <style>
+            #Projects::-webkit-scrollbar {width: 8px;}
+            #Projects::-webkit-scrollbar-thumb {background-color: #374151; /* gray-700 */ border-radius: 9999px;}
+            #Projects::-webkit-scrollbar-track {background: transparent;}
+            #Projects {scrollbar-width: thin; scrollbar-color: #374151 transparent;}
+        </style>
+        <section id="Projects" class="h-[100vh] overflow-y-auto px-12 py-24 pb-[250px]">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+
+                <a href="https://github.com/ash417-c/gambling-minigames" target="_blank" rel="noopener noreferrer"
+                class="project-card block bg-gray-800 p-6 rounded-2xl shadow-lg text-center 
+                transition-all duration-300 hover:ring-2 hover:ring-blue-400/50 select-none
+                w-[300px] h-[500px]">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-2">Blackjack</h3>
+                    <p class="text-gray-300">Blackjack, made with Pygame</p>
+                    <img src="./images/blackjack-thumbnail.png" alt="Blackjack Screenshot" class="w-full h-40 object-cover rounded-xl mt-6">
+                </a>
+
+                <a href="https://github.com/ash417-c/TODO-" target="_blank" rel="noopener noreferrer"
+                class="project-card block bg-gray-800 p-6 rounded-2xl shadow-lg text-center 
+                transition-all duration-300 hover:ring-2 hover:ring-blue-400/50 select-none
+                w-[300px] h-[500px]">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-2">Todo App</h3>
+                    <p class="text-gray-300">A Todo app/website, made with Unity and MongoDB</p>
+                    <img src="./images/todo-thumbnail.png" alt="Todo App Screenshot" class="w-full h-40 object-cover rounded-xl mt-6">
+                </a>
+
+                <a href="https://github.com/ash417-c/gambling-minigames" target="_blank" rel="noopener noreferrer"
+                class="project-card block bg-gray-800 p-6 rounded-2xl shadow-lg text-center 
+                transition-all duration-300 hover:ring-2 hover:ring-blue-400/50 select-none
+                w-[300px] h-[500px]">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-2">Image Recognizer</h3>
+                    <p class="text-gray-300">A neural net that identifies digits, made with TensorFlow</p>
+                    <img src="./images/classifier-thumbnail.png" alt="Classifier Screenshot" class="w-full h-40 object-cover rounded-xl mt-6">
+                </a>
+
+                <!-- <a href="https://github.com/ash417-c/gambling-minigames" target="_blank" rel="noopener noreferrer"
+                class="project-card block bg-gray-800 p-6 rounded-2xl shadow-lg text-center 
+                transition-all duration-300 hover:ring-2 hover:ring-blue-400/50 select-none
+                w-[300px] h-[500px]">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-2">Minecraft Music</h3>
+                    <p class="text-gray-300">Converts music to minecraft noises</p>
+                    <img src="./images/minecraftmusic-thumbnail.png" alt="Minecraft Music Screenshot" class="w-full h-40 object-cover rounded-xl mt-6">
+                </a> -->
+
+            </div>
+        </section>
+
     </div>
 
      <!-- Scripts -->
@@ -71,23 +121,44 @@
     <script src="./js/quotes.js"></script>
 
     <script>
-        const viewBtn = document.getElementById("view-projects");
-        const closeBtn = document.getElementById("close-projects");
-        const overlay = document.getElementById("projects-overlay");
-        const canvasWrapper = document.getElementById("canvas-wrapper");
+        document.addEventListener("DOMContentLoaded", () => {
+            const viewBtn = document.getElementById("view-projects");
+            const closeBtn = document.getElementById("close-projects");
+            const overlay = document.getElementById("projects-overlay");
+            const canvasWrapper = document.getElementById("canvas-wrapper");
+            const reloadBtn = document.getElementById("reload-quote");
 
-        viewBtn.addEventListener("click", () => {
-            gsap.to(canvasWrapper, { filter: "blur(2px) brightness(0.8)", duration: 0.5 });
-            overlay.classList.remove("hidden");
-            gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 });
-        });
+            viewBtn.addEventListener("click", () => {
+                overlay.classList.remove("hidden");
+                gsap.to(canvasWrapper, { 
+                    filter: "blur(2px) brightness(0.8)", 
+                    duration: 0.5 ,
+                    ease: "power2.out"
+                });
+                gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+            });
 
-        closeBtn.addEventListener("click", () => {
-            gsap.to(canvasWrapper, { filter: "blur(0px) brightness(1)", duration: 0.5 });
-            gsap.to(overlay, {
-                opacity: 0,
-                duration: 0.4,
-                onComplete: () => overlay.classList.add("hidden")
+            closeBtn.addEventListener("click", () => {
+                gsap.to(canvasWrapper, { 
+                    filter: "blur(0px) brightness(1)", 
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+                gsap.to(overlay, {
+                    opacity: 0,
+                    duration: 0.4,
+                    onComplete: () => overlay.classList.add("hidden")
+                });
+            });
+
+            // --- Drag over button ---
+            Matter.Events.on(mouseConstraint, "startdrag", () => {
+                reloadBtn.style.pointerEvents = "none";
+                viewBtn.style.pointerEvents = "none";
+            });
+            Matter.Events.on(mouseConstraint, "enddrag", () => {
+                reloadBtn.style.pointerEvents = "auto";
+                viewBtn.style.pointerEvents = "auto";
             });
         });
     </script>
